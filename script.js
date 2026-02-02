@@ -447,6 +447,6 @@ document.addEventListener('mousemove', (e) => {
 });
 
 // Start
-initApp();
+// initApp();
 startSnowfall();
-renderAll
+renderAll();
