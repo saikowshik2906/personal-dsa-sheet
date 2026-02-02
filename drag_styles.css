@@ -1,0 +1,57 @@
+
+/* === Topic Delete Button === */
+.topic-delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #e35d5b;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    transition: transform 0.2s;
+}
+
+.edit-mode .topic-delete-btn {
+    display: flex;
+}
+
+.topic-delete-btn:hover {
+    transform: scale(1.2);
+    background: #ff0000;
+}
+
+/* === Drag and Drop Styles === */
+.topic-column {
+    position: relative; /* For absolute positioning of delete button */
+    /* transition: transform 0.3s; -- Removing generic transform transition to avoid conflict with dnd or just enable it carefully */
+    transition: box-shadow 0.2s, background-color 0.2s;
+}
+
+.topic-column.draggable-source {
+    opacity: 0.4;
+    border: 2px dashed #aaa;
+}
+
+.topic-column.draggable-over {
+    border: 2px dashed var(--primary-color);
+    background: rgba(106, 17, 203, 0.05);
+    transform: scale(1.02);
+}
+
+.edit-mode .topic-column {
+    cursor: grab;
+    border: 1px dashed #ccc;
+}
+
+.edit-mode .topic-column:active {
+    cursor: grabbing;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Progress Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <nav class="slider-nav">
+            <button class="nav-btn active" onclick="showSlide(1)">Progress</button>
+            <button class="nav-btn" onclick="showSlide(2)">Questions</button>
+        </nav>
+
+        <!-- Slide 1: Progress Table -->
+        <div id="slide1" class="slide active">
+            <h2>Progress Overview</h2>
+            
+            <!-- Global Stats Container -->
+            <div class="global-stats-container">
+                <div class="chart-wrapper">
+                    <svg class="progress-ring" width="120" height="120">
+                        <circle class="progress-ring__circle-bg" stroke="#e6e6e6" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                        <circle class="progress-ring__circle" stroke="#00b09b" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                    </svg>
+                    <div class="percentage-label" id="global-percentage">0%</div>
+                </div>
+                <div class="stats-text">
+                    <h3>Total Progress</h3>
+                    <p id="total-questions-count">0 Questions Solved</p>
+                </div>
+            </div>
+
+            <table id="progress-table">
+                <thead>
+                    <tr>
+                        <th>Topic</th>
+                        <th>Progress</th>
+                    </tr>
+                </thead>
+                <tbody id="progress-body">
+                    <!-- Rows will be populated by JS -->
+                </tbody>
+            </table>
+            <div id="pie-tooltip" class="pie-tooltip" style="display: none;"></div>
+        </div>
+
+        <!-- Slide 2: Questions Board -->
+        <div id="slide2" class="slide">
+            <h2>Topic Questions</h2>
+            <div id="topic-board" class="topic-board">
+                <!-- Topics and question columns will be populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Add Button -->
+    <button class="fab" onclick="openModal()" title="Add Question">+</button>
+    <!-- Floating Edit Button -->
+    <button class="fab fab-edit" onclick="toggleEditMode()" title="Edit Mode">✎</button>
+
+    <!-- Modal -->
+    <div id="add-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Add New Question</h3>
+            <div class="form-group">
+                <label for="topic-input">Topic Name:</label>
+                <input type="text" id="topic-input" placeholder="e.g. Arrays" list="existing-topics">
+                <datalist id="existing-topics">
+                    <!-- Populated by JS -->
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label for="question-input">Question Number/ID:</label>
+                <input type="text" id="question-input" placeholder="e.g. 1">
+            </div>
+            <button onclick="handleAdd()">Add</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- Animated Background Particles -->
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>
